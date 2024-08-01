@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Investors{% endblock %}
+
+{% block content %}
+<body>
+    <section>
+        <h2>Investors</h2>
+        <div id="investorCards">
+            <!-- Investor cards for Tinder-like matching will be added here -->
+            {% for investor in investor_profiles %}
+                <div class="investor-card">
+                    <h3>{{ investor.name }}</h3>
+                    <p>{{ investor.email }}</p>
+                    <button class="messageBtn" onclick="redirectToMessage('{{ investor.email }}')">Message</button>
+                </div>
+            {% empty %}
+                <p>No matching investors found.</p>
+            {% endfor %}
+        </div>
+        <div id="actions">
+            <button id="dislikeBtn">Dislike</button>
+            <button id="likeBtn">Like</button>
+        </div>
+    </section>
+
+
+</body>
+{% endblock %}

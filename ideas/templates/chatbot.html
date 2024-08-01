@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}AI Chatbot{% endblock %}
+
+{% block content %}
+<body>
+    <h1>AI Integration with Gemini</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="input_data">Enter Input:</label>
+        <input type="text" id="input_data" name="input_data" required>
+        <button type="submit">Submit</button>
+    </form>
+    {% if ai_response %}
+        <h2>AI Response:</h2>
+        <p>{{ ai_response }}</p>
+    {% endif %}
+</body>
+{% endblock %}
